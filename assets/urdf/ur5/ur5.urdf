@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<robot name="ur5">
+
+  <!-- Arm Links -->
+  <link name="ur5_link_0">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="4.0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual name="base_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/base.dae"/>
+      </geometry>
+    </visual>
+    <collision name="base_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/base.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.05"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="3.7"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.00193" iyz="0" izz="-0.02561" />
+    </inertial>
+    <visual name="shoulder_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/shoulder.dae"/>
+      </geometry>
+    </visual>
+    <collision name="shoulder_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/shoulder.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.15"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="8.393"/>
+      <inertia ixx="0"  ixy="0"  ixz="0" iyy="-0.024201" iyz="0" izz="0.2125" />
+    </inertial>
+    <visual name="upper_arm_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/upperarm.dae"/>
+      </geometry>
+    </visual>
+    <collision name="upper_arm_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/upperarm.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0.28" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.56"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.275"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.0265" iyz="0" izz="0.11993" />
+    </inertial>
+    <visual name="forearm_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/forearm.dae"/>
+      </geometry>
+    </visual>
+    <collision name="forearm_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/forearm.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0.196125" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.39225"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_4">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.219"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.110949" iyz="0" izz="0.01634" />
+    </inertial>
+    <visual name="wrist_1_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/wrist1.dae"/>
+      </geometry>
+    </visual>
+    <collision name="wrist_1_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/wrist1.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0.093" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.12"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_5">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.219"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.0018" iyz="0" izz="0.11099" />
+    </inertial>
+    <visual name="wrist_2_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/wrist2.dae"/>
+      </geometry>
+    </visual>
+    <collision name="wrist_2_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/wrist2.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0 0.09465" rpy="0 0 0"/>
+      <geometry>
+        <capsule radius="0.06" length="0.12"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_6">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.1879"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.001159" iyz="0" izz="0" />
+    </inertial>
+    <visual name="wrist_3_link_visual">
+      <geometry>
+        <mesh filename="ur5/meshes/visual/wrist3.dae"/>
+      </geometry>
+    </visual>
+    <collision name="wrist_3_link_collision">
+      <geometry>
+        <mesh filename="ur5/meshes/collision/wrist3.stl"/>
+      </geometry>
+    </collision>
+    <self_collision_checking>
+      <origin xyz="0 0.06505 0" rpy="1.571 0 0"/>
+      <geometry>
+        <capsule radius="0.0375" length="0.0345"/>
+      </geometry>
+    </self_collision_checking>
+  </link>
+
+  <link name="ur5_link_ee">
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.01 0 0"/>
+    </collision>
+  </link>
+
+  <!-- Arm Joints -->
+  <joint name="shoulder_pan_joint" type="revolute">
+    <parent link="ur5_link_0"/>
+    <child link="ur5_link_1"/>
+    <origin xyz="0 0 0.089159" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="150.0" velocity="3.15"/> -->
+    <limit lower="-3.142" upper="3.142" effort="150" velocity="3.15" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="shoulder_lift_joint" type="revolute">
+    <parent link="ur5_link_1"/>
+    <child link="ur5_link_2"/>
+    <origin xyz="0 0.13585 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="150.0" velocity="3.15"/> -->
+    <limit lower="-3.142" upper="3.142" effort="150" velocity="3.15" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="elbow_joint" type="revolute">
+    <parent link="ur5_link_2"/>
+    <child link="ur5_link_3"/>
+    <origin xyz="0 -0.1197 0.425" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="150.0" velocity="3.15"/> -->
+    <limit lower="-3.142" upper="3.142" effort="150" velocity="3.15" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="ur5_link_3"/>
+    <child link="ur5_link_4"/>
+    <origin xyz="0 0 0.39225" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="28.0" velocity="3.2"/> -->
+    <limit lower="-3.142" upper="3.142" effort="28" velocity="3.2" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="ur5_link_4"/>
+    <child link="ur5_link_5"/>
+    <origin xyz="0 0.093 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="28.0" velocity="3.2"/> -->
+    <limit lower="-3.142" upper="3.142" effort="28" velocity="3.2" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="ur5_link_5"/>
+    <child link="ur5_link_6"/>
+    <origin xyz="0 0 0.09465" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <!-- <limit lower="-6.28319" upper="6.28319" effort="28.0" velocity="3.2"/> -->
+    <limit lower="-3.142" upper="3.142" effort="28" velocity="3.2" />
+    <safety_controller soft_lower_limit="-3.292" soft_upper_limit="3.292" k_position="20" k_velocity="0"/>
+    <dynamics damping="0"/>
+  </joint>
+
+  <joint name="end_effector_frame_fixed_joint" type="fixed">
+    <parent link="ur5_link_6"/>
+    <child link="ur5_link_ee"/>
+    <origin xyz="0 0.0823 0" rpy="0 0 1.571"/>
+  </joint>
+</robot>

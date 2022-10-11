@@ -1,0 +1,11 @@
+id:
+  0: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+  1: ['o7stuoth', '151a0znw', '3lio5j3m', 'dfoglmmy', '3tsia3sz']
+  2: ['1n2kltw5', '32ax7fo2', 'mc8xah69', '2alu5ud3', '101t4c04']
+  3: ['3kx5fyp8', '84qzblus', '2w0og8s8', 'b87rx8v2', '3p7jqs5i']
+  4: ['2wc41jt4', '3rxemum5', '27eout3j', '1w9kzyby', '32g68kpc']
+  5: ['33zp53c1', '15otorrz', '1ox5wnzr', '2mmemjcu', '1oq9j3yf']
+
+legend: [0, 1, 2, 3, 4, 5]
+
+path: 'larsv/rl_iiwa14/'

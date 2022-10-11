@@ -1,0 +1,24 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+venv/
+
+### Log files ###
+python/rlgpu/wandb/*
+python/rlgpu/logs/*
+python/rlgpu/runs/*
+
+### Metadata files ###
+python/isaacgym.egg-info/*
+
+### Data files ###
+*.csv
+
+!/python/isaacgym/__pycache__/gymapi.cpython-36.pyc
+!/python/isaacgym/__pycache__/gymdeps.cpython-36.pyc
+!/python/isaacgym/__pycache__/__init__.cpython-36.pyc
+
+!python/rlgpu/logs/franka/model_0.pt
+!python/rlgpu/logs/iiwa14/model_0.pt
+!python/rlgpu/logs/jaco/model_0.pt
+!python/rlgpu/logs/ur5/model_0.pt

@@ -1,0 +1,37 @@
+seed: 1
+
+clip_observations: 5.0
+clip_actions: 1.0
+
+policy:
+  # pi_hid_sizes: [256, 256, 256] # policy network layer size
+  # vf_hid_sizes: [256, 256, 256] # value network layer size
+  pi_hid_sizes: [512, 256, 128] # policy network layer size
+  vf_hid_sizes: [512, 256, 128] # value network layer size
+  # pi_hid_sizes: [128, 128, 128] # policy network layer size
+  # vf_hid_sizes: [128, 128, 128] # value network layer size
+  activation: selu # can be elu, relu, selu, crelu, lrelu, tanh, sigmoid
+learn:
+  agent_name: franka_ppo
+  test: False
+  resume: 0
+  save_interval: 1000
+  print_log: True
+
+  # rollout params
+  max_iterations: 5000
+
+  # training params   # seems like similar implementation as in stable baselines
+  cliprange: 0.2
+  ent_coef: 0.0065 # 0 default # entropy coefficient for the loss calculation in range of [0, 0.01]
+  nsteps: 32 # number of timesteps per batch (the original isaac paper has some comment on this value)
+  noptepochs: 20 # number of epoch when optimizing the surrogate
+  nminibatches: 4 # number of training minibatches per update - this is per agent
+  max_grad_norm: 1 # maximum value for the gradient clipping
+  optim_stepsize: 3.e-4 # 3e-4 is default for single agent training with constant schedule
+  schedule: adaptive # could be adaptive or linear
+  gamma: 0.99 # discount factor
+  lam: 0.95 # factor for trade-off of bias vs variance for Generalized Advantage Estimator
+  init_noise_std: 1.0
+
+  log_interval: 1

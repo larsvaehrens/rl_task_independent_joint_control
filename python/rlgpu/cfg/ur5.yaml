@@ -1,0 +1,147 @@
+env:
+  wandb_project: rl_ur5
+  num_envs: 2048
+  env_spacing: 1.5
+  episode_length: 500
+  enable_debug_vis: True
+
+  start_position_noise: 0.0 # for the work object
+  start_rotation_noise: 0.0 # for the work object
+
+  # observation dimensions
+  num_obst: 1 # number of obstacles in the environment
+  num_dofs: 6 # number of dof of the robot
+  num_actions: 6
+  goal_representation: 9 # state representation of end-effector pose, 3 for position and 7 if quaternion are included
+  error_representation: 4 # state representation of distance to goal, 1 if just distance, 3 if orientation, 4 for both
+
+  # curriculum
+  curr_modus: 2 # which type of curriculum, spherical = 0, torus = 1, generated = 2
+  curr_level: 0 # which curriculum level it starts with, range of 0-4
+  num_curr_level: 5 # it is only necessary to specify the value for currModus 0 and 1
+
+  # weight for rewards are taken from arxiv.org/pdf/2011.06332v1.pdf
+  distance_reward_scale: -20.0 # 20.0 from paper
+  obstacle_reward_scale: 0.1 # from paper
+  obstacle_maximum_distance: 0.05 # =  5 centimeters from paper
+  success_tolerance: 0.01 # = 1 centimeters from paper
+  reach_goal_bonus: 250 # from shadow_hand should maybe be scaled differently
+
+robot: # specific to the robot itself
+  control_type: 0 # how to actuate the joints, position = 0, velocity = 1
+  action_scale: 7.5 # values of 5 and 10 seemed to perform worse
+  dof_vel_scale: 0.1 # the value is a multiplier (ant uses 0.2) (humanoid uses 0.25 for angular velocity)
+  visual_attachments: True
+
+  dof_damping: [80, 80, 80, 80, 80, 80] # not adjusted for ur5
+  dof_stiffness: [400, 400, 400, 400, 400, 400] # not adjusted for ur5
+  dof_vel_lower_limits: [-85, -85, -100, -75, -130, -135] # not adjusted for ur5
+  dof_vel_upper_limits: [85, 85, 100, 75, 130, 135] # not adjusted for ur5
+
+  # obstacle avoidance
+  obst_size: 0.08 # 8 centimeters radius
+  link_safety_dist: [0.1125, 0.075, 0.09, 0.06, 0.0] # not adjusted for ur5
+
+  # spherical curriculum - not adjusted for ur5
+  spher_radius_low: [0.65, 0.65, 0.55, 0.55, 0.45] # values in metres
+  spher_radius_up: [0.75, 0.75, 0.75, 0.75, 0.75] # values in metres
+  spher_theta_low: [60, 60, 45, 18, 18] # values in degrees
+  spher_theta_up: [45, 90, 90, 90, 90] # values in degrees
+  spher_phi_low: [0.0, 0.0, 0.0, 0.0, 0.0] # values in degrees
+  spher_phi_up: [45, 60, 60, 90, 180] # values in degrees
+
+  # torus curriculum - not adjusted for ur5
+  torus_major_radius: [0.45] # values in metres
+  torus_minor_radius_low: [0.0, 0.0, 0.0, 0.0, 0.0] # values in metres
+  torus_minor_radius_up: [0.15, 0.20, 0.30, 0.30, 0.30] # values in metres
+  torus_theta_low: [0.0, 0.0, 0.0, 0.0, 0.0] # values in degrees
+  torus_theta_up: [360, 360, 360, 360, 360] # values in degrees
+  torus_phi_low: [0.0, 0.0, 0.0, 0.0, 0.0] # values in degrees
+  torus_phi_up: [45, 60, 60, 90, 180] # values in degrees
+
+  # self generated curriculum - not adjusted for ur5
+  workspace_size: 0.7 # values in metres - taken from datasheet
+  curriculum_sizes: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6] # values in metres
+
+task:
+  randomize: False
+  randomization_params:
+    # specify which attributes to randomize for each actor type and property
+    frequency: 600   # Define how many environment steps between generating new randomizations
+    observations:
+      range: [0, .001]
+      operation: "additive"
+      distribution: "uniform"
+      schedule: "linear"   # "constant" is to turn on noise after `schedule_steps` num resets
+      schedule_steps: 75000
+    actions:
+      range: [0., .01]
+      operation: "additive"
+      distribution: "gaussian"
+      schedule: "linear"  # "linear" will linearly interpolate between no rand and max rand
+      schedule_steps: 75000
+    sim_params:
+      gravity:
+        range: [0, 0.4]
+        operation: "additive"
+        distribution: "gaussian"
+        schedule: "linear"  # "linear" will linearly interpolate between no rand and max rand
+        schedule_steps: 75000
+    actor_params:
+      iiwa:
+        color: True
+        dof_properties:
+          damping:
+            range: [0.3, 3.0]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+          stiffness:
+            range: [0.75, 1.5]
+            operation: "scaling"
+            distribution: "loguniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+          lower:
+            range: [0, 0.01]
+            operation: "additive"
+            distribution: "gaussian"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+          upper:
+            range: [0, 0.01]
+            operation: "additive"
+            distribution: "gaussian"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+        rigid_body_properties:
+          mass:
+            range: [0.25, 1.25]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+        rigid_shape_properties:
+          friction:
+            num_buckets: 250
+            range: [0.7, 1.3]
+            operation: "scaling"
+            distribution: "uniform"
+            schedule: "linear"  # "linear" will scale the current random sample by `min(current num steps, schedule_steps) / schedule_steps`
+            schedule_steps: 60000
+
+sim:
+  dt: 0.1 # franka uses 0.01 as default
+  substeps: 2 # using 2 substeps sometimes is required for better interactions where collision, but 1 is faster
+  physx:
+    num_threads: 4
+    solver_type: 1 # 0: Projected Gauss-Seidel, 1: Temporal Gauss-Seidel
+    num_position_iterations: 8
+    num_velocity_iterations: 0
+    contact_offset: 0.005
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.5
+    max_depenetration_velocity: 1000.0
+    default_buffer_size_multiplier: 5.0
+    always_use_articulations: False

@@ -1,0 +1,1 @@
+python/isaacgym/_bindings/linux-x86_64/libcarb.gym.plugin.so filter=lfs diff=lfs merge=lfs -text

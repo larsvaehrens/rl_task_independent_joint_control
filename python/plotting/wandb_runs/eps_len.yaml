@@ -1,0 +1,9 @@
+id:
+  125: ['3sxge6a0', '1c3b170f', '2w7tlzjm', '1s7aoiry', '2l4yk95p']
+  250: ['3u796seh', '2m2czxpn', '2w7je5kb', '3hrgwbkq', 'o5wtx2rl']
+  375: ['ov7hbt1c', '37sg75r0', '2iebn3dt', 'pnra3xzt', '19gzt6vd']
+  500: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+
+legend: [125, 250, 375, 500]
+
+path: 'larsv/rl_iiwa14/'

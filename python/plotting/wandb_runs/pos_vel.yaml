@@ -1,0 +1,7 @@
+id:
+  Position: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+  Velocity: ['xycvxowx', '5vywjc97', 'tglx4m4z', 'rmt7mluu', '37fj27hj']
+
+legend: [Position, Velocity]
+
+path: 'larsv/rl_iiwa14/'

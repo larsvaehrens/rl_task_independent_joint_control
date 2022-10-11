@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Væhrens"
+  given-names: "Lars"
+  orcid: "https://orcid.org/0000-0001-6831-2885"
+- family-names: "Díez Álvarez"
+  given-names: "Daniel"
+  orcid: "https://orcid.org/0000-0003-2513-9415"
+- family-names: "Berger"
+  given-names: "Ulrich"
+  orcid: "https://orcid.org/0000-0001-9002-6877"
+- family-names: "Bøgh"
+  given-names: "Simon"
+  orcid: "https://orcid.org/0000-0002-5960-4365"
+title: "Learning Task-independent Joint Control for Robotic Manipulators with Reinforcement Learning and Curriculum Learning"
+doi: 10.1000/000-0-000-00000-0_0
+date-released: 2022-12-14
+url: "https://github.com/LarsVaehrens/rl_task_independent_joint_control"
+preferred-citation:
+  type: conference-paper
+  authors:
+  - family-names: "Væhrens"
+    given-names: "Lars"
+    orcid: "https://orcid.org/0000-0001-6831-2885"
+  - family-names: "Díez Álvarez"
+    given-names: "Daniel"
+    orcid: "https://orcid.org/0000-0003-2513-9415"
+  - family-names: "Berger"
+    given-names: "Ulrich"
+    orcid: "https://orcid.org/0000-0001-9002-6877"
+  - family-names: "Bøgh"
+    given-names: "Simon"
+    orcid: "https://orcid.org/0000-0002-5960-4365"
+  journal: "2022 IEEE International Conference on Machine Learning and Applications (ICMLA)"
+  month: 12
+  title: "Learning Task-independent Joint Control for Robotic Manipulators with Reinforcement Learning and Curriculum Learning"
+  year: 2022

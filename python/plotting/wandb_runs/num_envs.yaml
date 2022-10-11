@@ -1,0 +1,15 @@
+id:
+  64: ['2rykrm1x']
+  128: ['1d35an0n']
+  256: ['2drgzddk']
+  512: ['1mk1mbgx']
+  1024: ['2dew4lp7', 'aopzj25v', '3evkenk8']
+  2048: ['1tgq9fh0', '1z36gsrc', '1ggjj06k']
+  3072: ['18ilreec', '359glx1s', '12pdd5tj']
+  4096: ['7gduih4j', '3skilcfx', '20pbhesb']
+  5120: ['cfho0es5', '98bru2ty', '1mnzw2l8']
+  6144: ['3btluksi', '1g3y8e6a', '14qs2gpd']
+
+legend: [64, 128, 256, 512, 1024, 2048, 3072, 4096, 5120, 6144]
+
+path: 'larsv/rl_iiwa14/'

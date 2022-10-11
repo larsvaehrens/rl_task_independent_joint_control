@@ -1,0 +1,7 @@
+id:
+  Distance: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+  Orientation: ['wsz6xvh2', '1rpf49f4', '295ersg0', '3fkwt2tg', '2j1435b9']
+
+legend: [Distance, Orientation]
+
+path: 'larsv/rl_iiwa14/'

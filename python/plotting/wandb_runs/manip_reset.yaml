@@ -1,0 +1,7 @@
+id:
+  Reset: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+  NoReset: ['17r6lqg6', '1c5f6tuj', '1bl6im4y', '16s6y8nw', '3gomqt1h']
+
+legend: [Reset, NoReset]
+
+path: 'larsv/rl_iiwa14/'

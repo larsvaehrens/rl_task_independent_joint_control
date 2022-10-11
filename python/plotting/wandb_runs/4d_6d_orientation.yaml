@@ -1,0 +1,7 @@
+id:
+  4D: ['4gio2rx4', '26gcn57x', '2vfg2r8p', '3p4gje25', 'yorsjsox']
+  6D: ['1d0d5ope', '3b40wjg6', '2yijfkbj', '2qb4eg2p', '2jnxqbfb']
+
+legend: [4D, 6D]
+
+path: 'larsv/rl_iiwa14_new/'

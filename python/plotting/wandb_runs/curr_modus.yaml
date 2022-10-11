@@ -1,0 +1,8 @@
+id:
+  Spherical: ['3ml81xfj', '3e6ree5y', '1v4w1rdt', '1x9q8asr', 'v4hduc69']
+  Torus: ['5x8hvvq2', '1qdq7fww', '89sh0obf', '1a1k7uz8', '1ipf8cmc']
+  Generated: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+
+legend: [Spherical, Torus, Generated]
+
+path: 'larsv/rl_iiwa14/'

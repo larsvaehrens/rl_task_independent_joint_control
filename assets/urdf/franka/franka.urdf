@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<robot name="franka" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- base_link -->
+  <link name ="franka_base_link"/>
+  <!--joint between base_link and link_0-->
+  <joint name="franka_joint_0" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0 "/>
+    <parent link="franka_base_link"/>
+    <child link="franka_link_0"/>
+  </joint>
+  <!-- link_0 -->
+  <link name="franka_link_0">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link0.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link0.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_0 and link_1 -->
+  <joint name="franka_joint_1" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="0 0 0" xyz="0 0 0.333"/>
+    <parent link="franka_link_0"/>
+    <child link="franka_link_1"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
+  </joint>
+  <!-- link_1 -->
+  <link name="franka_link_1">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link1.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_1 and link_2 -->
+  <joint name="franka_joint_2" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628"/>
+    <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
+    <parent link="franka_link_1"/>
+    <child link="franka_link_2"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-1.7628" upper="1.7628" velocity="2.1750"/>
+  </joint>
+  <!-- link_2 -->
+  <link name="franka_link_2">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link2.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link2.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_2 and link_3 -->
+  <joint name="franka_joint_3" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="1.57079632679 0 0" xyz="0 -0.316 0"/>
+    <parent link="franka_link_2"/>
+    <child link="franka_link_3"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
+  </joint>
+  <!-- link_3 -->
+  <link name="franka_link_3">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link3.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link3.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_3 and link_4 -->
+  <joint name="franka_joint_4" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.0698"/>
+    <origin rpy="1.57079632679 0 0" xyz="0.0825 0 0"/>
+    <parent link="franka_link_3"/>
+    <child link="franka_link_4"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-3.0718" upper="-0.0698" velocity="2.1750"/>
+    <!-- something is weird with this joint limit config
+    <dynamics damping="10.0"/>
+    <limit effort="87" lower="-3.0" upper="0.087" velocity="2.1750"/>  -->
+  </joint>
+  <!-- link_4 -->
+  <link name="franka_link_4">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link4.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link4.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_4 and link_5 -->
+  <joint name="franka_joint_5" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="-1.57079632679 0 0" xyz="-0.0825 0.384 0"/>
+    <parent link="franka_link_4"/>
+    <child link="franka_link_5"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
+  </joint>
+  <!-- link_5 -->
+  <link name="franka_link_5">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link5.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link5.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_5 and link_6 -->
+  <joint name="franka_joint_6" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/>
+    <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+    <parent link="franka_link_5"/>
+    <child link="franka_link_6"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
+    <!-- <dynamics damping="10.0"/>
+    <limit effort="12" lower="-0.0873" upper="3.0" velocity="2.6100"/> -->
+  </joint>
+  <!-- link_6 -->
+  <link name="franka_link_6">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link6.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link6.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_6 and link_7 -->
+  <joint name="franka_joint_7" type="revolute">
+    <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
+    <origin rpy="1.57079632679 0 0" xyz="0.088 0 0"/>
+    <parent link="franka_link_6"/>
+    <child link="franka_link_7"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="10.0"/>
+    <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
+  </joint>
+  <!-- link_7 -->
+  <link name="franka_link_7">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/link7.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/link7.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!--
+  <link name="franka_link_8"/>
+  <joint name="franka_joint_8" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.107"/>
+    <parent link="franka_link_7"/>
+    <child link="franka_link_8"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  Removing this joint seems to help with some stability things
+  -->
+  <!-- joint between link_7 and link_ee -->
+  <joint name="franka_joint_ee" type="fixed">
+    <parent link="franka_link_7"/>
+    <child link="franka_link_ee"/>
+    <origin xyz="0 0 0.045" rpy="0 0 0"/>
+  </joint>
+  <!-- link_ee -->
+  <link name="franka_link_ee">
+  </link>
+</robot>
+  <!-- <joint name="franka_hand_joint" type="fixed"> -->
+    <!-- <parent link="franka_link_8"/> -->
+    <!-- <parent link="franka_link_7"/>
+    <child link="franka_hand"/>
+    <origin rpy="0 0 -0.785398163397" xyz="0 0 0.107"/> -->
+    <!-- <origin rpy="0 0 -0.785398163397" xyz="0 0 0"/> -->
+  <!-- </joint> -->
+  <!-- link_hand -->
+  <!-- <link name="franka_link_hand">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/hand.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/hand.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- joint between link_hand and link_left_finger -->
+  <joint name="franka_finger_joint_1" type="prismatic">
+    <parent link="franka_link_hand"/>
+    <child link="franka_link_left_finger"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0584"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="10.0"/>
+    <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
+  </joint>
+  <!-- link_left_finger -->
+  <link name="franka_link_left_finger">
+    <visual>
+      <geometry>
+        <mesh filename="franka/meshes/visual/finger.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="franka/meshes/collision/finger.obj"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- jonit between link_hand and link_right_finger -->
+  <joint name="franka_finger_joint_2" type="prismatic">
+    <parent link="franka_link_hand"/>
+    <child link="franka_link_right_finger"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0584"/>
+    <axis xyz="0 -1 0"/>
+    <dynamics damping="10.0"/>
+    <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
+    <mimic joint="franka_finger_joint_1"/>
+  </joint>
+</robot>
+  <!-- link_right_finger -->
+  <link name="franka_link_right_finger">
+    <visual>
+      <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="franka/meshes/visual/finger.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="franka/meshes/collision/finger.obj"/>
+      </geometry>
+    </collision>
+  </link> -->

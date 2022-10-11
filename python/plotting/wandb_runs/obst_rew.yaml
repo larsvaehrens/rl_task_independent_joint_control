@@ -1,0 +1,11 @@
+id:
+  0.025: ['3nas88zh', '286cca5c', '3act5iz4', '2eng0k7c', '1ox40cwe']
+  0.05: ['2vwnl5z9', '1mkkjqa5', '1kenjmib', '1l4mwc5p', '1hoztkyr']
+  0.075: ['a5y37j6t', '2zn7vgs3', 'gzpgsoxz', '2dj4zl4w', '1goh7do9']
+  0.1: ['2iq6icts', '3iw6ba09', '33gjmg4x', '3sjr4t0q', '2fsqv302']
+  0.125: ['2lqh12uh', '1j30hmcn', '1ld6xvcu', '1ah89879', 'wdk16ajp']
+  0.15: ['2uwpu7qw', '1verk7jn', '1tuzwh7v', '36o3ksb1', 'leivzov3']
+
+legend: [0.025, 0.05, 0.075, 0.1, 0.125, 0.15]
+
+path: 'larsv/rl_iiwa14/'
